@@ -1,145 +1,211 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
+<html lang="th">
+
 <head>
-	<meta charset="utf-8" />
-	<title>Horrorism</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	<meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>ระบบจัดการหลังบ้าน</title>
+        <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<base href="{{ asset('') }}">
-	<link rel="icon" href="{{ url('../') }}/img/favicon.png" sizes="32x32">
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="assets/css/font/fonts.css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="assets/css/animate.min.css" rel="stylesheet" />
-	<link href="assets/css/style.min.css" rel="stylesheet" />
-	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="assets/css/theme/red.css" rel="stylesheet" id="theme" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-	<link href="assets/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" />
-	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-	<link href="assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/plugins/lightbox/css/lightbox.css" rel="stylesheet" />
-  <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
-	<link href="assets/plugins/bootstrap-datetimepicker-master 3/build/css/bootstrap-datetimepicker.css" rel="stylesheet" />
-	<link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
-	
-	<link rel="stylesheet" href="assets/summernote/summernote.css" >
-	
-	<link href="assets/crop-select-js-master/crop-select-js.min.css" rel="stylesheet" type="text/css" />
+	<!-- <link rel="icon" href="{{ url('../') }}/img/favicon.png" sizes="32x32"> -->
+    <!-- Favicon icon -->
+    <!-- <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"> -->
+        <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="assets/plugin/bootstrap/css/bootstrap.min.css">
+    <!-- Material Icon -->
+    <link rel="stylesheet" type="text/css" href="assets/icon/material-design/css/material-design-iconic-font.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+    <!-- Font Awesome -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <!-- Select 2 css -->
+    <link rel="stylesheet" href="assets/plugin/select2/css/select2.min.css" />
+    <link rel="stylesheet" href="assets/plugin/jquery-confirm/jquery-confirm.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-		@stack('css')
+    <link rel="stylesheet" type="text/css" href="assets/plugin/bootstrap-datepicker/css/bootstrap-datepicker3.css">
 
-	<!-- ================== END PAGE LEVEL STYLE ================== -->
+    <link rel="stylesheet" type="text/css" href="assets/plugin/summernote-master/dist/summernote-bs4.css">
 
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
+    <link rel="stylesheet" type="text/css" href="assets/plugin/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugin/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+    
+    <link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
+    @stack('css')
 </head>
+
 <body>
-	<!-- begin #page-loader -->
-	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
-	<!-- end #page-loader -->
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
 
-	<!-- begin #page-container -->
-	<div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
-		<!-- begin #header -->
-		@include('backend.inc.header')
-		<!-- end #header -->
+<div id="pcoded" class="pcoded">
+<div class="pcoded-overlay-box"></div>
 
-		<!-- begin #sidebar -->
-		@include('backend.inc.sidebar')
-		<!-- @include('backend.inc.theme-panel') -->
-
-		<!-- end #sidebar -->
-
-		<!-- begin #content -->
-		@yield('content')
-		<!-- end #content -->
-
-		<!-- begin #footer -->
-		@include('backend.inc.footer')
-		<!-- end #footer -->
-
-		<!-- begin scroll to top btn -->
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
-		<!-- end scroll to top btn -->
-
-	</div>
-	<!-- end page container -->
+    @include('backend.inc.header')
 
 
-
-	<!-- begin #modal-alert -->
-	<div class="modal fade" id="modal-alert">
-		<div class="modal-dialog">
-			<div class="modal-content" style="margin-top: 15%;">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h4 class="modal-title">Message Alert</h4>
-				</div>
-				<div class="modal-body">
-					<div class="alert alert-success m-b-0">
-						<h4><i class="fa fa-info-circle"></i> Detailed</h4>
-						<div><b id="status">{{ ucfirst(session('alert.status')) }},</b> <span id="msg">{{ session('alert.msg') }}</span></div>
-					</div>
-				</div>
-				<div class="modal-footer">
-				<a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end #modal-alert -->
+    <div class="idr-background">
+        <div class="ids-background pcoded-main-container">
+            <div class="pcoded-wrapper">
 
 
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="assets/js/moment.min.js"></script>
-	<script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	<script src="assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/plugins/ckeditor/ckeditor.js"></script>
-	<script src="assets/summernote/summernote.min.js"></script>
-	
-	<!--[if lt IE 9]>
-		<script src="assets/crossbrowserjs/html5shiv.js"></script>
-		<script src="assets/crossbrowserjs/respond.min.js"></script>
-		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
-	<![endif]-->
-	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	<script src="assets/plugins/fullcalendar/fullcalendar.js"></script>
-	<script src="assets/js/calendar.demo.min.js"></script>
-	<script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"><script> 
-	<script src="assets/crop-select-js-master/crop-select-js.min.js"></script>
+            @include('backend.inc.sidebar')
+
+                
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+
+                @yield('content')
+            
+            
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    
+     @include('backend.inc.footer')
 
 
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="assets/js/apps.min.js"></script>
-	<script src="assets/plugins/bootstrap-datetimepicker-master 3/build/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="assets/plugins/DataTables/media/js/jquery.dataTables.min.js"></script>
-	<script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
-	<script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-	<script src="assets/sweetalert/dist/sweetalert.min.js"></script>
-	@include('sweet::alert')
-	<!-- ================== END PAGE LEVEL JS ================== -->
+    <!-- Warning Section Starts -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 10]>
+        <div class="ie-warning">
+            <h1>Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers
+                to access this website.</p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="assets/images/browser/chrome.png" alt="Chrome">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="assets/images/browser/firefox.png" alt="Firefox">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="assets/images/browser/opera.png" alt="Opera">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="assets/images/browser/safari.png" alt="Safari">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="assets/images/browser/ie.png" alt="">
+                            <div>IE (9 & above)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
 
-	<script>
+     
+    <!-- Required Jquery -->
+        <script  src="assets/plugin/jquery/js/jquery.min.js"></script>
+        <script  src="assets/plugin/jquery-ui/js/jquery-ui.min.js"></script>
+        <script  src="assets/plugin/popper.js/js/popper.min.js"></script>
+        <script  src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+        <!-- jquery slimscroll js -->
+        <script  src="assets/plugin/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+        <!-- modernizr js -->
+        <script  src="assets/plugin/modernizr/js/modernizr.js"></script>
+        <script  src="assets/plugin/modernizr/js/css-scrollbars.js"></script>
+        <script src="assets/js/pcoded.min.js"></script>
+        <script src="assets/js/vertical/vertical-layout.js"></script>
+        <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="assets/plugin/jquery-validation/js/jquery.validate.js"></script>
+        <!-- Select 2 js -->
+        <script  src="assets/plugin/select2/js/select2.full.min.js"></script>
+
+        <script src="assets/plugin/chart.js/js/Chart.js"></script>
+        <script src="assets/js/moment.js"></script>
+        <script src="assets/plugin/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        
+        <script src="assets/plugin/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="assets/plugin/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="assets/pages/data-table/js/jszip.min.js"></script>
+        <!-- <script src="assets/pages/data-table/js/pdfmake.min.js"></script> -->
+        <script src="assets/pages/data-table/js/vfs_fonts.js"></script>
+        <script src="assets/plugin/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="assets/plugin/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="assets/plugin/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="assets/plugin/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="assets/plugin/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+        <!-- Custom js -->
+        <script src="assets/plugin/summernote-master/dist/summernote-bs4.js">
+
+
+        <script  src="assets/js/jquery.form-cache.js"></scr>
+        <script  src="assets/js/html2canvas.min.js"></script>
+        <script  src="assets/plugin/jquery-confirm/jquery-confirm.min.js"></script>
+        
+        <!-- Custom js -->
+        <script src="assets/js/script.js"></script>
+        <script src="assets/sweetalert/dist/sweetalert.min.js"></script>
+        @include('sweet::alert')
+        <script>
 		$(document).ready(function() {
-			App.init();
-			$.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
-		});
-	</script>
-	@stack('scripts')
+			
+            $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+            
+            $('.summernote').summernote({
+                toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+                ],
+            });
+        
+        });
+        </script>
+        @stack('scripts')
+        
 </body>
+
 </html>

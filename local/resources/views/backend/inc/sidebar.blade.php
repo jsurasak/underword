@@ -1,268 +1,82 @@
-		<div id="sidebar" class="sidebar">
-			<!-- begin sidebar scrollbar -->
-			<div data-scrollbar="true" data-height="100%">
-				<!-- begin sidebar user -->
-				<ul class="nav">
-					<li class="nav-profile">
-						<div class="image">
-							<a href="admin/system/profile/"><img src="assets/img/user-13.jpg" alt="" /></a>
-						</div>
-						<div class="info">
-							Administrator
-							<small><b>Backend developer</b></small>
-						</div>
-					</li>
-				</ul>
-				<!-- end sidebar user -->
-				<!-- begin sidebar nav -->
+                <?php
 
-				<ul class="nav">
+                $path = explode('/',Request::path());
+    
 
-					<li class="nav-header"><h5 style="color:white">ระบบจัดการ</h5></li>
-
-					<?php $permission = Auth::user()->level; 
-					
-					if($permission == 0 || $permission == 1){
-
-					?>
-
-					<li class="has-sub">
-							<a href="javascript:;">
-									<b class="caret pull-right"></b>
-									<i class="fa fa-laptop"></i>
-									<span>Content</span>
-								</a>
-							<ul class="sub-menu">
-							<?php
-
-						$type = DB::table('ck_type_content')->get();
-
-						foreach ($type as $key => $t) {
-							echo '<li>
-												<a href="content/' . $t->id . '"></i><span>' . $t->name_content . '</span></a>
-											</li>';
-						}
-
-
-						?>
-						<li>
-							<a href="event" ></i><span>Event</span></a>
-						</li>
-
-						</ul>
-					</li>
-
-					
-
-
-					<li><a href="writher"><i class="fa fa-laptop"></i> <span>จัดการรายชื่อ นักเขียน</span></a></li>
-
-
-
-					<?php } 
-
-
-					if($permission == 0 || $permission == 2){
-
-					?>
-
-					<li class="has-sub">
-							<a href="javascript:;">
-									<b class="caret pull-right"></b>
-									<i class="fa fa-laptop"></i>
-									<span>จัดการ ผลงานเขียน</span>
-								</a>
-							<ul class="sub-menu">
-							
-							<li>
-								<a href="manage_novel" ></i><span>นิยาย</span></a>
-							</li>
-							<li>
-								<a href="manage_novel_vip" ></i><span>นิยายแนะนำ</span></a>
-							</li>
-							<!-- <li>
-								<a href="manage_comics" ></i><span>การ์ตูน</span></a>
-							</li> -->
-							<li>
-								<a href="manage_short" ></i><span>เรื่องสั้น</span></a>
-							</li>
-							<li>
-								<a href="manage_story" ></i><span>เรื่องเล่า / ประสบการณ์</span></a>
-							</li>
-							<li>
-								<a href="manage_clip" ></i><span>คลิป</span></a>
-							</li>
-
-							</ul>
-					</li>
-
-					<li class="has-sub">
-							<a href="javascript:;">
-									<b class="caret pull-right"></b>
-									<i class="fa fa-laptop"></i>
-									<span>อนุมัติงานเขียนที่ถูก report</span>
-								</a>
-							<ul class="sub-menu">
-							
-							<li>
-								<a href="confirm_chaper_novel" ></i><span>ตอน นิยาย</span></a>
-							</li>
-							
-							<li>
-								<a href="confirm_chaper_commic" ></i><span>ตอน การ์ตูน</span></a>
-							</li>
-							<li>
-								<a href="confirm_short" ></i><span>เรื่องสั้น</span></a>
-							</li>
-							<li>
-								<a href="confirm_story" ></i><span>เรื่องเล่า / ประสบการณ์</span></a>
-							</li>
-							<li>
-								<a href="confirm_clip" ></i><span>คลิป</span></a>
-							</li> 
-
-							</ul>
-						</li>
-
-						<li><a href="manage_novel_today"><i class="fa fa-laptop"></i> <span>จัดการนิยายประจำวัน</span></a></li>
-						
-
-						<li class="has-sub">
-							<a href="javascript:;">
-									<b class="caret pull-right"></b>
-									<i class="fa fa-laptop"></i>
-									<span>comment ที่ถูก report</span>
-								</a>
-							<ul class="sub-menu">
-							
-							
-							<li>
-								<a href="commentChapter" ></i><span>comment ส่วน งานเขียน</span></a>
-							</li>
-	
-
-							</ul>
-						</li>
-						<li><a href="reportWriter"><i class="fa fa-laptop"></i> <span>งานเขียนที่ถูก report</span></a></li>
-
-
-					<?php }
-					
-					if ($permission == 0 || $permission == 3) {
-
-					?>
-
-					<li><a href="user"><i class="fa fa-laptop"></i> <span>จัดการรายชื่อ สมาชิก</span></a></li>
-
-					<li class="has-sub">
-							<a href="javascript:;">
-									<b class="caret pull-right"></b>
-									<i class="fa fa-laptop"></i>
-									<span>Report การขาย</span>
-								</a>
-							<ul class="sub-menu">
-							
-							<li><a href="report_sell"><span>รายงานการขาย</span></a></li>
-							<li>
-								<a href="report_bile" ></i><span>รอบบิลจ่ายเงิน</span></a>
-							</li>
-
-							<li>
-								<a href="report_skull" ></i><span>รายงานการขายหัวกระโหลก</span></a>
-							</li>
-	
-
-							</ul>
-					</li>
-
-					
-
-
-					<?php }
-
-						if ($permission == 0 ) { 
-					
-					?>
-					
-
-						<li><a href="default_picture"><i class="fa fa-laptop"></i> <span>จัดการ รูปภาพ default</span></a></li>
-						<li><a href="price_skull"><i class="fa fa-laptop"></i> <span>จัดการ ราคา skull</span></a></li>
-						<li><a href="category"><i class="fa fa-laptop"></i> <span>จัดการ หมวดหมู่ นืยาย</span></a></li>
-						<li><a href="about"><i class="fa fa-laptop"></i> <span>จัดการส่วนหน้า AboutUS</span></a></li>
-						<li><a href="requirements"><i class="fa fa-laptop"></i> <span>จัดการส่วน ข้อกำหนจ</span></a></li>
-						<li><a href="setcontent"><i class="fa fa-laptop"></i> <span>Set 5top Content</span></a></li>
-						<li><a href="commentContent" ><i class="fa fa-laptop"></i><span>comment ส่วน Content</span></a></li>
-
-						<li class="has-sub">
-							<a href="javascript:;">
-									<b class="caret pull-right"></b>
-									<i class="fa fa-laptop"></i>
-									<span>จัดการส่วน ส่วนการโฆษณา</span>
-								</a>
-							<ul class="sub-menu">
-							<?php
-
-						$ad = DB::table('advertising')->get();
-
-						foreach ($ad as $key => $t) {
-							echo '<li>
-											<a href="advertising/' . $t->id . '/show"></i><span>' . $t->name . '</span></a>
-										</li>';
-						}
-
-
-						?>
-							<li>
-								<a href="event" ></i><span>Event</span></a>
-							</li>
-
-							</ul>
-						</li>
-
-						<li class="has-sub">
-							<a href="javascript:;">
-									<b class="caret pull-right"></b>
-									<i class="fa fa-laptop"></i>
-									<span>Ghost Gift</span>
-								</a>
-							<ul class="sub-menu">
-							
-							<li>
-								<a href="ghost_gift" ></i><span>จัดการสินค้า</span></a>
-							</li>
-							<li>
-								<a href="ghostgiftreport" ></i><span>ดูรายงานการแลกสินค้า</span></a>
-							</li>
-	
-
-							</ul>
-						</li>
-
-						<li><a href="contentsetapi" ><i class="fa fa-laptop"></i><span>จัดการ Line To day</span></a></li>
-
-
-						
-
-
-
-					<?php } ?>
-	
-
-						<li class="nav-header"><h5 style="color:white">Admin</h5></li>
-						
-						<?php if ($permission == 0){ ?>
-						<li><a href="admin"><i class="fa fa-laptop"></i> <span>จัดการ User</span></a></li>
-						<?php }
-						$idAdmin = Auth::user()->id;
-						?>
-						<li><a href="change_password/<?php echo $idAdmin; ?>/form"><i class="fa fa-laptop"></i> <span>แก้ไข Password</span></a></li>
-
-
-
-					<li><a href="{{asset(Config::get('app.admin_path'))}}/template/?file=javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
-				</ul>
-				<!-- end sidebar nav -->
-			</div>
-			<!-- end sidebar scrollbar -->
-		</div>
-		<div class="sidebar-bg"></div>
+                ?>
+                <nav class="pcoded-navbar">
+                    <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="icon-close icons"></i></a></div>
+                    <div class="pcoded-inner-navbar main-menu">
+                        <div class="pcoded-navigation-label" menu-title-theme="theme1">ระบบจัดการหลังบ้าน</div>
+                        <ul class="pcoded-item pcoded-left-item">
+                            <li class="{{ (($path[0] == '')?'active':'') }}">
+                                <a href="{{ action('DashboardController@index') }}">
+                                    <span class="pcoded-micon"><i class="fas fa-home"></i><b>D</b></span>
+                                    <span class="pcoded-mtext">ภาพรวม</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                            <li class="{{ (($path[0] == 'banner')?'active':'') }}">
+                                <a href="{{ action('BannerController@index') }}">
+                                    <span class="pcoded-micon"><i class="fas fa-images"></i><b>B</b></span>
+                                    <span class="pcoded-mtext">จัดการแบนเนอร์</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                            <li class="{{ (($path[0] == 'new')?'active':'') }}">
+                                <a href="{{ action('NewController@index') }}">
+                                    <span class="pcoded-micon"><i class="fas fa-newspaper"></i><b>N</b></span>
+                                    <span class="pcoded-mtext">หน้าข่าวสาร</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                            <li class="{{ (($path[0] == 'catalogs')?'active':'') }}">
+                                <a href="{{ action('CatalogsController@index') }}">
+                                    <span class="pcoded-micon"><i class="fas fa-layer-group"></i><b>T</b></span>
+                                    <span class="pcoded-mtext">จัดการหมวดหมู่สินค้า</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                            <li class="{{ (($path[0] == 'product')?'active':'') }}">
+                                <a href="{{ action('ProductsController@index') }}">
+                                    <span class="pcoded-micon"><i class="fab fa-product-hunt"></i><b>P</b></span>
+                                    <span class="pcoded-mtext">จัดการสินค้า</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                            <li class="{{ (($path[0] == 'order')?'active':'') }}">
+                                <a href="{{ action('OrderController@index') }}">
+                                    <span class="pcoded-micon"><i class="fas fa-box"></i><b>O</b></span>
+                                    <span class="pcoded-mtext">รายการสั่งซื้อ</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                            <!-- <li class="pcoded-hasmenu active pcoded-trigger" dropdown-icon="style3" subitem-icon="style7">
+                                <a href="javascript:void(0)">
+                                    <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                    <span class="pcoded-mtext">Dashboard</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class="active">
+                                        <a href="index.html">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext">Default</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>                                        
+                                </ul>
+                            </li> -->
+                        </ul>
+                        <div class="pcoded-navigation-label" menu-title-theme="theme1">ระบบจัดการผู้ดูแลระบบ</div>
+                        <ul class="pcoded-item pcoded-left-item">
+                            <li class="">
+                                <a href="{{ action('AdminController@index') }}">
+                                    <span class="pcoded-micon"><i class="far fa-user"></i><b>A</b></span>
+                                    <span class="pcoded-mtext">จัดการผู้ดูแล</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>

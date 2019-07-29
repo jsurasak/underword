@@ -1,33 +1,141 @@
-		<div id="header" class="header navbar navbar-inverse navbar-fixed-top">
-			<!-- begin container-fluid -->
-			<div class="container-fluid">
-				<!-- begin mobile sidebar expand / collapse button -->
-				<div class="navbar-header">
-					<a href="{{ url('') }}/home" class="navbar-brand"><span class="navbar-logo"></span>Backoffice</a>
-					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<!-- end mobile sidebar expand / collapse button -->
-				<!-- begin header navigation right -->
-				<ul class="nav navbar-nav navbar-right">
-					<!--@include('backend.inc.notifications')-->
-					<li class="dropdown navbar-user">
-						<a href="system/profile/" class="dropdown-toggle" data-toggle="dropdown">
-							<img src="assets/img/user-13.jpg" alt="" />
-							<span class="hidden-xs"></span> <b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu animated fadeInLeft">
-							<li class="arrow"></li>
-							<!-- <li><a href="{{asset(Config::get('app.admin_path'))}}/system/profile/">Edit Profile</a></li> -->
-							<li class="divider"></li>
-							<li><a href="logout">Log Out</a></li>
-						</ul>
-					</li>
-				</ul>
-				<!-- end header navigation right -->
-			</div>
-			<!-- end container-fluid -->
-		</div>
+<div class="pcoded-container navbar-wrapper">
+    <nav class="navbar header-navbar pcoded-header pcoded-animetor" >
+        <div class="navbar-wrapper">
+            <div class="navbar-logo">
+                <a class="mobile-menu" id="mobile-collapse" href="javascript:void(0)">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <div class="mobile-search">
+                    <div class="header-search">
+                        <div class="main-search morphsearch-search">
+                            <div class="input-group">
+                                <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                <input type="text" class="form-control" placeholder="Enter Keyword">
+                                <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="{{ asset('') }}">
+                <h5>Admin</h5>    
+                <!-- <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" /> -->
+                </a>
+
+                <a class="mobile-options">
+                    <i class="ti-more"></i>
+                </a>
+            </div>
+
+            <div class="navbar-container container-fluid">
+                <ul class="nav-left">
+
+                    <!-- <li class="header-search">
+                        <div class="main-search morphsearch-search">
+                            <div class="input-group">
+                                <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                <input type="text" class="form-control">
+                                <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                            </div>
+                        </div>
+                    </li>  -->
+
+                    <li>
+                        <a href="javascript:void(0)" onclick="javascript:toggleFullScreen()">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="nav-right">
+
+                    <!-- <li class="header-notification">
+                                <a href="javascript:void(0)">
+                                    <i class="ti-bell"></i>
+                                    <span class="badge bg-c-pink"></span>
+                                </a>
+                                <ul class="show-notification">
+                                    <li>
+                                        <h6>Notifications</h6>
+                                        <label class="label label-danger">New</label>
+                                    </li>
+                                    <li>
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="assets/images/avatar-2.jpg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">John Doe</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">Joseph William</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="assets/images/avatar-3.jpg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">Sara Soudein</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                    <li class="">
+                        <a href="javascript:void(0)" class="displayChatbox">
+                            <i class="ti-comments"></i>
+                            <span class="badge bg-c-green"></span>
+                        </a>
+                    </li>                   -->
+                    <li class="user-profile header-notification">
+                        <a href="javascript:void(0)">
+                            <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                            <span></span>
+                            <i class="fas fa-angle-down"></i>
+                        </a>
+                        <ul class="show-notification profile-notification">
+                            <!-- <li>
+                                <a href="javascript:void(0)">
+                                    <i class="ti-settings"></i> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/accounts/profile.html">
+                                    <i class="ti-user"></i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/accounts/logoff.html">
+                                    <i class="ti-lock"></i> Lock Screen
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="logout">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- <li class="">
+        <a href="javascript:void(0)" class="displayChatbox">
+            <i class="ti-comments"></i>
+            <span class="badge bg-c-green"></span>
+        </a>
+    </li> -->
