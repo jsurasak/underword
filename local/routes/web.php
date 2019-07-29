@@ -13,51 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'auth'], function () {
-
-    Route::get('/','DashboardController@index');
-    Route::post('/chart_month', 'DashboardController@month');
-    Route::post('/chart_years', 'DashboardController@years');
-
-
-    Route::get('/banner','BannerController@index');
-    Route::post('/banner', 'BannerController@save');
-
-
-    Route::get('/new','NewController@index');
-    Route::get('/new/create', 'NewController@create');
-    Route::get('/new/{id}/edit', 'NewController@edit');
-    Route::get('/new/{id}/delete', 'NewController@del');
-    Route::post('/new/add', 'NewController@add');
-    Route::post('/new/save', 'NewController@save');
-    Route::post('/new_datatable', 'NewController@datatable');
-
-    Route::get('/catalogs', 'CatalogsController@index');
-    Route::get('/catalogs/create', 'CatalogsController@create');
-    Route::get('/catalogs/{id}/edit', 'CatalogsController@edit');
-    Route::get('/catalogs/{id}/delete', 'CatalogsController@del');
-    Route::post('/catalogs/add', 'CatalogsController@add');
-    Route::post('/catalogs/save', 'CatalogsController@save');
-    Route::post('/catalogs_datatable', 'CatalogsController@datatable');
-
-
-    Route::get('/product', 'ProductsController@index');
-    Route::get('/product/create', 'ProductsController@create');
-    Route::get('/product/{id}/edit', 'ProductsController@edit');
-    Route::get('/product/{id}/delete', 'ProductsController@del');
-    Route::get('/product/{id}/status/{status}', 'ProductsController@statsu');
-    Route::post('/product/add', 'ProductsController@add');
-    Route::post('/product/save', 'ProductsController@save');
-    Route::post('/product_datatable', 'ProductsController@datatable');
-
-
-    Route::get('/order','OrderController@index');
-    Route::post('/order/ems', 'OrderController@ems');
-    Route::post('/oreder/detail','OrderController@detail');
-    Route::post('/order_datatable', 'OrderController@datatable');
-    
-
-    
+Route::group(['middleware' => 'auth'], function () {    
     
     Route::get('/admin', 'AdminController@index');
     Route::post('/admin_datatable', 'AdminController@datatable');
@@ -71,6 +27,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 });
+
+
+Route::get('/ticketing',function(){
+
+    return view('backend.ticketing.created');
+
+});
+
 
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
