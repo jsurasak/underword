@@ -1,6 +1,13 @@
 @extends('backend.layouts.default')
+<style>
+    .table > tbody > tr > td{
+        vertical-align: middle;
+    }
+    .table-box {
+        table-layout: fixed;
+    }
+</style>
 @section('content')
-        
 <div class="main-body">
     <div class="page-wrapper">
 
@@ -17,184 +24,154 @@
             </div>
         </div>
 
-       
-
-        <div class="card tabs-card" style="width:100%">
-            <div class="card-block p-0">  
-                <div class="tab-content card-block row">
-                    <div class="col-xs-6"> 
-                        <div class="form-inline">
-                            <div class="form-group">
-                                <label for="exampleInputName2">Event</label>
-                                <input type="text" class="form-control" id="exampleInputName2" placeholder="Entrance">
+        <div class="row">
+            
+            <div class="col-md-6 col-sm-12"> 
+                <div class="card tabs-card" >
+                    <div class="card-block p-0">  
+                        <div class="tab-content card-block ">
+                            <div class="col-xs-12">      
+                            <table class="table table-borderless"  class="my-3">
+                                <tr>
+                                    <td>Event</td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>--select--</option>
+                                        </select>
+                                    </td>
+                                    <td>Date</td>
+                                    <td>
+                                    <input type="date" class="form-control" id="exampleInputEmail2" >
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table table-box table-borderless" class="my-3">
+                                <tr>
+                                    <td width="10%">Group</td>
+                                    <td>Ticket Type</td>
+                                    <td>Price</td>
+                                    <td>Quantity</td>
+                                    <td>Total</td>
+                                    <td rowspan="5"><button class="btn" type="button">Add</button></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4" class="text-center">Regular <br> Rate</td>
+                                    <td>Thai Adult</td>
+                                    <td><button type="button" class="btn">250</button></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Thai Child</td>
+                                    <td><button type="button" class="btn">150</button></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Foreigner Adult</td>
+                                    <td><button type="button" class="btn">500</button></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Foreigner Child</td>
+                                    <td><button type="button" class="btn">300</button></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                            </table>                 
+                            <table class="table table-box table-borderless"  class="my-3">
+                                <tr>
+                                    <td>Group</td>
+                                    <td>Ticket Type</td>
+                                    <td>Price</td>
+                                    <td>Quantity</td>
+                                    <td>Total</td>
+                                    <td>Discount</td>
+                                    <td>Net</td>
+                                    <td rowspan="6"><button class="btn" type="button">Add</button></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="5" class="text-center">Regular <br> Rate</td>
+                                    <td>Thai Adult</td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Thai Child</td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Foreigner Adult</td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Foreigner Child</td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                            </table>
+                            <table class="table table-box table-borderless"  class="my-3">
+                                <tr>
+                                    <td><button class="btn">1</button></td>
+                                    <td><button class="btn">2</button></td>
+                                    <td><button class="btn">3</button></td>
+                                    <td><button class="btn">4</button></td>
+                                    <td><button class="btn">5</button></td>
+                                    <td rowspan="2"><button class="btn">C</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button class="btn">6</button></td>
+                                    <td><button class="btn">7</button></td>
+                                    <td><button class="btn">8</button></td>
+                                    <td><button class="btn">9</button></td>
+                                    <td><button class="btn">0</button></td>
+                                </tr>
+                            </table>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail2">Date</label>
-                                <input type="date" class="form-control" id="exampleInputEmail2" >
-                            </div>
-                            <button type="submit" class="btn btn-default">Load customer</button>
                         </div>
-                        <div class="col-xs-12">
-                        <table width="100%">
-                            <tr>
-                                <td>Group</td>
-                                <td>Ticket Type</td>
-                                <td>Price</td>
-                                <td>Quantity</td>
-                                <td>Total</td>
-                                <td rowspan="5"><button class="btn" type="button">Add</button></td>
-                            </tr>
-                            <tr>
-                                <td rowspan="4">Regular Rate</td>
-                                <td>Thai Adult</td>
-                                <td><button type="button" class="btn">250</button></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                            <tr>
-                                <td>Thai Child</td>
-                                <td><button type="button" class="btn">150</button></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                            <tr>
-                                <td>Foreigner Adult</td>
-                                <td><button type="button" class="btn">500</button></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                            <tr>
-                                <td>Foreigner Child</td>
-                                <td><button type="button" class="btn">300</button></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                        </table>
-                        <table width="100%">
-                            <tr>
-                                <td>Booking ID</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td>Name</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><button class="btn">Event Not Required</button></td>
-                            <tr>
-                            <tr>
-                                <td>Customer ID</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td>Name</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><button class="btn">Seach Customer</button></td>
-                            <tr>
-                            <tr>
-                                <td>Promotion ID</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td>Name</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><button class="btn">Seach Promomtion</button></td>
-                            <tr>
-                            <tr>
-                                <td>Voucher ID</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td>No</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><button class="btn">Event Not Required</button></td>
-                            <tr>
-                        </table>
-                        <table width="100%">
-                            <tr>
-                                <td>Group</td>
-                                <td>Ticket Type</td>
-                                <td>Price</td>
-                                <td>Quantity</td>
-                                <td>Total</td>
-                                <td>Discount</td>
-                                <td>Net</td>
-                                <td rowspan="6"><button class="btn" type="button">Add</button></td>
-                            </tr>
-                            <tr>
-                                <td rowspan="5">Regular Rate</td>
-                                <td>Thai Adult</td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                            <tr>
-                                <td>Thai Child</td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                            <tr>
-                                <td>Foreigner Adult</td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                            <tr>
-                                <td>Foreigner Child</td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td>Group</td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><button class="btn">Nationality</button></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                            <tr>
-                                <td>Sub Group</td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td><button class="btn">Nationality</button></td>
-                                <td><input type="text" class="form-controll"></td>
-                            </tr>
-                            <tr>
-                                <td>Zone</td>
-                                <td><input type="text" class="form-controll"></td>
-                                <td>Promotion Description</td>
-                                <td><textarea rows="3"></textarea></td>
-                            </tr>
-                        </table>
-                        <table width="100%">
-                            <tr>
-                                <td><button class="btn">1</button></td>
-                                <td><button class="btn">2</button></td>
-                                <td><button class="btn">3</button></td>
-                                <td><button class="btn">4</button></td>
-                                <td><button class="btn">5</button></td>
-                                <td rowspan="2"><button class="btn">C</button></td>
-                            </tr>
-                            <tr>
-                                <td><button class="btn">6</button></td>
-                                <td><button class="btn">7</button></td>
-                                <td><button class="btn">8</button></td>
-                                <td><button class="btn">9</button></td>
-                                <td><button class="btn">0</button></td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6 col-sm-12">
+                <div class="card tabs-card" >
+                    <div class="card-block p-0">  
+                        <div class="tab-content card-block ">
+                            <table width="100%">
+                                <thead>
+                                    <th>Void</th>
+                                    <th>No</th>
+                                    <th>Event</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Qty</th>
+                                    <th>Total</th>
+                                    <th>Disc</th>
+                                    <th>Net</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
