@@ -2,10 +2,26 @@
 <style>
     .table > tbody > tr > td{
         vertical-align: middle;
+        font-size:13px;
+        text-align: center;
+        
+    }
+    .table-input > tbody > tr > td{
+        border: solid 1px #ccc !important;
     }
     .table-box {
         table-layout: fixed;
     }
+    .table-number > tbody > tr > td {
+        padding: 20px;
+        background-color: #ccc;
+        border: solid 10px #fff !important;
+    }
+    .table-button-total > tbody > tr > td  {
+        padding: 20px;
+        border: solid 5px #ccc !important;
+    }
+
 </style>
 @section('content')
 <div class="main-body">
@@ -13,12 +29,12 @@
 
         <div class="page-header card">
             <div class="card-block">
-                <h5 class="m-b-10">หน้าจัดการ Banner</h5>
+                <h5 class="m-b-10">หน้าจัดการ ticketing</h5>
                 <ul class="breadcrumb-title b-t-default p-t-10">
                     <li class="breadcrumb-item">
                         <a href="{{ asset('') }}"> <i class="fa fa-home"></i> </a>
                     </li>
-                    <li class="breadcrumb-item">Banner</a>
+                    <li class="breadcrumb-item">ระบบออกตั๋ว</a>
                     </li>
                 </ul>
             </div>
@@ -26,7 +42,7 @@
 
         <div class="row">
             
-            <div class="col-md-6 col-sm-12"> 
+            <div class="col-md-5 col-sm-12"> 
                 <div class="card tabs-card" >
                     <div class="card-block p-0">  
                         <div class="tab-content card-block ">
@@ -45,43 +61,43 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table class="table table-box table-borderless" class="my-3">
-                                <tr>
+                            <table class="table table-box table-borderless table-input" class="my-3">
+                                <tr style="background-color: #929292;">
                                     <td width="10%">Group</td>
                                     <td>Ticket Type</td>
                                     <td>Price</td>
                                     <td>Quantity</td>
                                     <td>Total</td>
-                                    <td rowspan="5"><button class="btn" type="button">Add</button></td>
+                                    <td rowspan="5" style="background-color: #f94040;color: #fff;"><h4>Add</h4></td>
                                 </tr>
                                 <tr>
-                                    <td rowspan="4" class="text-center">Regular <br> Rate</td>
+                                    <td rowspan="4" class="text-center" style="background-color: #408af99e;color: #fff;">Regular <br> Rate</td>
                                     <td>Thai Adult</td>
-                                    <td><button type="button" class="btn">250</button></td>
+                                    <td><h4>250</h4></td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td>Thai Child</td>
-                                    <td><button type="button" class="btn">150</button></td>
+                                    <td><h4>150</h4></td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td>Foreigner Adult</td>
-                                    <td><button type="button" class="btn">500</button></td>
+                                    <td><h4>500</h4></td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td>Foreigner Child</td>
-                                    <td><button type="button" class="btn">300</button></td>
+                                    <td><h4>300</h4></td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
                                 </tr>
                             </table>                 
-                            <table class="table table-box table-borderless"  class="my-3">
-                                <tr>
+                            <table class="table table-box table-borderless table-input"  class="my-3">
+                                <tr style="background-color: #929292;">
                                     <td>Group</td>
                                     <td>Ticket Type</td>
                                     <td>Price</td>
@@ -89,10 +105,10 @@
                                     <td>Total</td>
                                     <td>Discount</td>
                                     <td>Net</td>
-                                    <td rowspan="6"><button class="btn" type="button">Add</button></td>
+                                    <td rowspan="6" style="background-color: #f94040;color: #fff;"><h4>Add</h4></td>
                                 </tr>
                                 <tr>
-                                    <td rowspan="5" class="text-center">Regular <br> Rate</td>
+                                    <td rowspan="5" class="text-center" style="background-color: #f94040;color: #fff;">Regular <br> Rate</td>
                                     <td>Thai Adult</td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
@@ -109,7 +125,7 @@
                                     <td><input type="text" class="form-control"></td>
                                 </tr>
                                 <tr>
-                                    <td>Foreigner Adult</td>
+                                    <td>Foreigner <br> Adult</td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
@@ -117,7 +133,7 @@
                                     <td><input type="text" class="form-control"></td>
                                 </tr>
                                 <tr>
-                                    <td>Foreigner Child</td>
+                                    <td>Foreigner <br> Child</td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
                                     <td><input type="text" class="form-control"></td>
@@ -125,21 +141,21 @@
                                     <td><input type="text" class="form-control"></td>
                                 </tr>
                             </table>
-                            <table class="table table-box table-borderless"  class="my-3">
+                            <table class="table table-box table-borderless table-number"  class="my-3">
                                 <tr>
-                                    <td><button class="btn">1</button></td>
-                                    <td><button class="btn">2</button></td>
-                                    <td><button class="btn">3</button></td>
-                                    <td><button class="btn">4</button></td>
-                                    <td><button class="btn">5</button></td>
-                                    <td rowspan="2"><button class="btn">C</button></td>
+                                    <td><h4>1</h4></td>
+                                    <td><h4>2</h4></td>
+                                    <td><h4>3</h4></td>
+                                    <td><h4>4</h4></td>
+                                    <td><h4>5</h4></td>
+                                    <td rowspan="2"><h4>C</h4></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="btn">6</button></td>
-                                    <td><button class="btn">7</button></td>
-                                    <td><button class="btn">8</button></td>
-                                    <td><button class="btn">9</button></td>
-                                    <td><button class="btn">0</button></td>
+                                    <td><h4>6</h4></td>
+                                    <td><h4>7</h4></td>
+                                    <td><h4>8</h4></td>
+                                    <td><h4>9</h4></td>
+                                    <td><h4>0</h4></td>
                                 </tr>
                             </table>
                             </div>
@@ -148,30 +164,74 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-7 col-sm-12">
                 <div class="card tabs-card" >
-                    <div class="card-block p-0">  
+                    <div class="card-block p-0" style="height: 564px;">  
                         <div class="tab-content card-block ">
-                            <table width="100%">
-                                <thead>
-                                    <th>Void</th>
-                                    <th>No</th>
-                                    <th>Event</th>
-                                    <th>Type</th>
-                                    <th>Price</th>
-                                    <th>Qty</th>
-                                    <th>Total</th>
-                                    <th>Disc</th>
-                                    <th>Net</th>
+                            <table width="100%" class="table table-striped">
+                                <thead >
+                                    <th class="text-center">Void</th>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Event</th>
+                                    <th class="text-center">Type</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Qty</th>
+                                    <th class="text-center">Total</th>
+                                    <th class="text-center">Disc</th>
+                                    <th class="text-center">Net</th>
                                 </thead>
                                 <tbody>
+                                    <?php for($i=0;$i<10;$i++): ?>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>#</td>
+                                            <td>####</td>
+                                            <td>##</td>
+                                            <td>#####</td>
+                                            <td>###</td>
+                                            <td>#####</td>
+                                            <td>##</td>
+                                            <td>####</td>
+                                        <tr>
+                                    <?php endfor ?>
                                 </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="card tabs-card" >
+                    <div class="card-block p-0">
+                    <div class="tab-content card-block p-0 ">
+                            <table width="100%" class="table-button-total">
+                               <tr>
+                                <td colspan="5" class="text-center"><h5>Total</h5></td>
+                               <tr>
+                               <tr>
+                                <td rowspan="2" class="text-center" style="background-color: #f94040;color: #fff;">
+                                    <h4>Delete</h4>
+                                </td>
+                                <td>Thai Adult : 0</td>
+                                <td>Thai Child : 0</td>
+                                <td>Free : 0</td>
+                                <td rowspan="4" class="text-center" style="background-color: #24b72f;color: #fff;"><h3>Payment</h3></td>
+                               </tr>
+                               <tr>
+                                <td>Foreigner Adult : 0</td>
+                                <td colspan="2">Foreigner Child : 0</td>
+                               <tr>
+                               <tr>
+                                <td>Note</td>
+                                <td colspan="3">
+                                    <textarea rows="3" class="form-control"></textarea>
+                                </td>
+                               </tr>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
 
+            
         </div>
 
 

@@ -189,6 +189,12 @@
 		$(document).ready(function() {
 			
             $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+
+            if (window.matchMedia('screen and (min-width: 992px)').matches) {
+
+            $('#mobile-collapse').click();
+
+            }
             
             // $('.summernote').summernote({
             //     toolbar: [
